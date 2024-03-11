@@ -1,18 +1,11 @@
-//
-// client.cpp
-// ~~~~~~~~~~
-//
-// Copyright (c) 2003-2023 Christopher M. Kohlhoff (chris at kohlhoff dot com)
-//
-// Distributed under the Boost Software License, Version 1.0. (See accompanying
-// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-//
 
-#include <array>
 #include <boost/asio.hpp>
+#include <exception>
 #include <iostream>
+#include <ostream>
 
-using boost::asio::ip::tcp;
+#include "client.cpp"
+#include "server.cpp"
 
 int main(int argc, char* argv[]) {
   try {
@@ -20,32 +13,24 @@ int main(int argc, char* argv[]) {
       std::cerr << "Usage: client <host>" << std::endl;
       return 1;
     }
-
-    boost::asio::io_context io_context;
-
-    tcp::resolver resolver(io_context);
-    tcp::resolver::results_type endpoints =
-        resolver.resolve(argv[1], "daytime");
-
-    tcp::socket socket(io_context);
-    boost::asio::connect(socket, endpoints);
-
-    for (;;) {
-      std::array<char, 128> buf;
-      boost::system::error_code error;
-
-      size_t len = socket.read_some(boost::asio::buffer(buf), error);
-
-      if (error == boost::asio::error::eof)
-        break;  // Connection closed cleanly by peer.
-      else if (error)
-        throw boost::system::system_error(error);  // Some other error.
-
-      std::cout.write(buf.data(), len);
+    char server = 's';
+    bool is_server{false};
+    for (int i = 0; i < argc; i++) {
+      std::cout << argv[i] << std::endl;
+      if (*argv[i] == server) {
+        std::cout << "server found" << std::endl;
+        is_server = true;
+      }
     }
+    if (is_server) {
+      run_server();
+    } else {
+      run_client(argc, argv);
+    }
+
+    return 0;
   } catch (std::exception& e) {
     std::cerr << e.what() << std::endl;
   }
-
   return 0;
 }
