@@ -4,3 +4,5 @@ cpp_asio_example/build
 cpp_asio_example/.vscode
 cpp_asio_example/third_party
 .DS_Store
+cpp_basic_example/build
+cpp_basic_example/cmake-build-deubg
