@@ -9,7 +9,13 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/gabime/spdlog.git
         GIT_TAG v1.12.0
 )
-FetchContent_MakeAvailable(spdlog)
+
+FetchContent_Declare(
+        Catch2
+        GIT_REPOSITORY git@github.com:catchorg/Catch2.git
+        GIT_TAG v3.5.3
+)
+FetchContent_MakeAvailable(spdlog Catch2)
 
 
 set(SOURCES
@@ -20,4 +26,4 @@ set(SOURCES
 
 add_executable(example ${SOURCES})
 target_include_directories(example PRIVATE ${PROJECT_SOURCE_DIR}/include)
-target_link_libraries(example PRIVATE spdlog::spdlog)
+target_link_libraries(example PRIVATE spdlog::spdlog Catch2::Catch2)
