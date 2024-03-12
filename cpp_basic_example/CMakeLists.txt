@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.28.0)
 
-project(example)
+project(s)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 include(FetchContent)
@@ -25,6 +25,6 @@ set(SOURCES
         src/main.cpp
 )
 
-add_executable(example ${SOURCES})
-target_include_directories(example PRIVATE ${PROJECT_SOURCE_DIR}/include)
-target_link_libraries(example PRIVATE spdlog::spdlog Catch2::Catch2)
+add_executable(s ${SOURCES})
+target_include_directories(s PRIVATE ${PROJECT_SOURCE_DIR}/include)
+target_link_libraries(s PRIVATE spdlog::spdlog Catch2::Catch2)
