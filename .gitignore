@@ -5,4 +5,6 @@ cpp_asio_example/.vscode
 cpp_asio_example/third_party
 .DS_Store
 cpp_basic_example/build
-cpp_basic_example/cmake-build-deubg
+cpp_basic_example/cmake-build-debug
+cpp_basic_example/.cache
+cpp_basic_example/.idea

@@ -1,8 +1,5 @@
-#include <iostream>
-
 #include "hello.h"
 
- void Hello::print()
-{
-    std::cout << "Hello Headers!" << std::endl;
-}
+#include <iostream>
+
+void Hello::print() {}

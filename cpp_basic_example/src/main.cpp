@@ -1,8 +1,6 @@
-#include "array.h"
-#include "hello.h"
+#include "array_slice.h"
 
-int main(int argc, char *argv[]) {
-  Hello::print();
-  print_example();
+int main() {
+  array_example();
   return 0;
 }
