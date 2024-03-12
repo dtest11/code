@@ -1,10 +1,10 @@
-
-#include "spdlog/spdlog.h"
+#include <cstring>
+#include <iostream>
 
 void string_example() {
   using std::cout;
   using std::endl;
-  spdlog::info("string example");
+  cout << "string example" << endl;
 
   char site[] = "RUNOOB";
   char str1[13] = "runoob";
@@ -14,11 +14,11 @@ void string_example() {
 
   // 复制 str1 到 str3
   strcpy(str3, str1);
-  cout << "strcpy( str3, str1) : " << str3 << endl;
+  cout << "strcpy(str3, str1) : " << str3 << endl;
 
   // 连接 str1 和 str2
   strcat(str1, str2);
-  cout << "strcat( str1, str2): " << str1 << endl;
+  cout << "strcat(str1, str2): " << str1 << endl;
 
   // 连接后，str1 的总长度
   len = strlen(str1);
