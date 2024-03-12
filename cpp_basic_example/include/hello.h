@@ -4,7 +4,7 @@
 class Hello
 {
 public:
-    void print();
+    static void print();
 };
 
 #endif
