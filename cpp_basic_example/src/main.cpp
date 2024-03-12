@@ -9,7 +9,7 @@
 int main() {
   // return Catch::Session().run();
   array_example();
-  pointer_example();
   string_example();
+  pointer_example();
   return 0;
 }
