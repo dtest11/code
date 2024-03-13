@@ -5,7 +5,8 @@
 #include <termcolor/termcolor.hpp>
 
 void Green::PrintHeader(std::string str) {
-  std::cout << termcolor::red << "------- " << str << "-------- " << std::endl;
+  std::cout << termcolor::red << "\n------- " << str << "-------- "
+            << std::endl;
 }
 
 void Green::PrintTitle(std::string str) {
