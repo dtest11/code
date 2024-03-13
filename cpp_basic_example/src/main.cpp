@@ -6,6 +6,7 @@
 #include "const.cpp"
 #include "file.cpp"
 #include "pointer.cpp"
+#include "signal.cpp"
 #include "string.cpp"
 #include "time.cpp"
 
@@ -17,5 +18,9 @@ int main() {
   time_example();
   const_example();
   file_example();
+  sign_exampe();
+  while (true){
+    sleep(1);
+  }
   return 0;
 }
