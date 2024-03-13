@@ -12,19 +12,27 @@ FetchContent_Declare(
 )
 
 FetchContent_Declare(
+        termcolor
+        GIT_REPOSITORY git@github.com:ikalnytskyi/termcolor.git
+        GIT_TAG   v2.1.0
+)
+
+FetchContent_Declare(
         Catch2
         GIT_REPOSITORY git@github.com:catchorg/Catch2.git
         GIT_TAG v3.5.3
 )
-FetchContent_MakeAvailable(spdlog Catch2)
+
+FetchContent_MakeAvailable(spdlog Catch2 termcolor)
 
 
 set(SOURCES
         src/array_slice.cpp
         src/hello.cpp
+        src/color.cpp
         src/main.cpp
 )
 
 add_executable(s ${SOURCES})
 target_include_directories(s PRIVATE ${PROJECT_SOURCE_DIR}/include)
-target_link_libraries(s PRIVATE spdlog::spdlog Catch2::Catch2)
+target_link_libraries(s PRIVATE spdlog::spdlog Catch2::Catch2 termcolor::termcolor)
