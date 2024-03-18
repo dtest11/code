@@ -9,6 +9,7 @@
 #include "signal.cpp"
 #include "string.cpp"
 #include "time.cpp"
+#include "http/download.cpp"
 
 int main() {
   // return Catch::Session().run();
@@ -19,8 +20,9 @@ int main() {
   const_example();
   file_example();
   sign_exampe();
-  while (true){
-    sleep(1);
-  }
+  // while (true){
+    // sleep(1);
+  // }
+  download_example();
   return 0;
 }

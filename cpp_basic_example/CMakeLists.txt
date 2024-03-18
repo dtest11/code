@@ -22,8 +22,12 @@ FetchContent_Declare(
         GIT_REPOSITORY git@github.com:catchorg/Catch2.git
         GIT_TAG v3.5.3
 )
+include(FetchContent)
+FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
+        GIT_TAG 3b15fa82ea74739b574d705fea44959b58142eb8) # Replace with your desired git commit from: https://github.com/libcpr/cpr/releases
 
-FetchContent_MakeAvailable(spdlog Catch2 termcolor)
+
+FetchContent_MakeAvailable(spdlog Catch2 termcolor cpr)
 
 
 set(SOURCES
@@ -31,8 +35,9 @@ set(SOURCES
         src/hello.cpp
         src/color.cpp
         src/main.cpp
+        src/http/download.cpp
 )
 
 add_executable(s ${SOURCES})
 target_include_directories(s PRIVATE ${PROJECT_SOURCE_DIR}/include)
-target_link_libraries(s PRIVATE spdlog::spdlog Catch2::Catch2 termcolor::termcolor)
+target_link_libraries(s PRIVATE spdlog::spdlog Catch2::Catch2 termcolor::termcolor cpr::cpr)
